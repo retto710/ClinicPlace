@@ -1,12 +1,17 @@
 package com.example.anthony.clinicplace;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
 
 
 /**
@@ -18,14 +23,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class citaFragmento extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Button guardar;
+    private EditText especialidad;
+    private EditText horaFin;
+    private EditText horaInicio;
+    private EditText sede;
+    private TransferUtility transferUtility;
 
     private OnFragmentInteractionListener mListener;
 
@@ -33,31 +36,42 @@ public class citaFragmento extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment citaFragmento.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static citaFragmento newInstance(String param1, String param2) {
-        citaFragmento fragment = new citaFragmento();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        setContentView(R.layout.);
+
+
+        final MapperHelper helper = new MapperHelper(getApplicationContext());
+
+        especialidad= (EditText)findViewById(R.id.nombre);
+        horaFin=(EditText)findViewById(R.id.apellidos);
+        horaInicio=(EditText)findViewById(R.id.dni);
+        sede=(EditText)findViewById(R.id.ubicacion);
+
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isEmpty(nombres)) nombres.setError("Ingrese su nombre");
+                else if (isEmpty(apellidos)) nombres.setError("Ingrese sus apellidos");
+                else if (isEmpty(dni)) nombres.setError("Ingrese su dni");
+                else if (isEmpty(ubicacion)) nombres.setError("Ingrese su distrito");
+                else    {
+
+
+
+                    Cita objCita = helper.mapper.load(Cita.class, "1",getId());
+                    objCita.setEspecialidad(especialidad.getText().toString());
+                    objCita.setHoraInicio(horaInicio.getText().toString());
+                    objCita.setHoraFin(horaFin.getText().toString());
+                    objCita.setSede(sede.getText().toString());
+                    helper.mapper.save(objCita);
+                    Intent profileIntent = new Intent(citaFragmento.this, AdminProfileActivity.class);
+                    startActivity(profileIntent);
+                }
+            }
+        });
+
     }
 
     @Override
