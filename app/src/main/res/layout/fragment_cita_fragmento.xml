@@ -1,0 +1,103 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.anthony.clinicplace.citaFragmento">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txtNombre"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="especialidad"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/elegirFoto" />
+
+        <EditText
+            android:id="@+id/nombre"
+            style="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:hint="Ingrese especialidad"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+        <TextView
+            android:id="@+id/txtApellidos"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora inicio"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+        <EditText
+            android:id="@+id/apellidos"
+            style="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ingrese hora inicio"
+            app:layout_constraintTop_toBottomOf="@+id/txtApellidos" />
+
+        <TextView
+            android:id="@+id/txtDNI"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora Fin"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/apellidos" />
+
+        <EditText
+            android:id="@+id/dni"
+            style="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="ingrese hora fin"
+            app:layout_constraintTop_toBottomOf="@+id/txtDNI" />
+
+        <TextView
+            android:id="@+id/txtUbicacion"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sede"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dni" />
+
+        <AutoCompleteTextView
+            android:id="@+id/ubicacion"
+            style="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese sede"
+            app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            app:layout_constraintTop_toBottomOf="@+id/ubicacion"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            />
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+</FrameLayout>
