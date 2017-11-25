@@ -39,6 +39,7 @@ public class citaFragmento extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         setContentView(R.layout.);
 
 
@@ -71,7 +72,7 @@ public class citaFragmento extends Fragment {
                 }
             }
         });
-
+        */
     }
 
     @Override
@@ -119,4 +120,6 @@ public class citaFragmento extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
